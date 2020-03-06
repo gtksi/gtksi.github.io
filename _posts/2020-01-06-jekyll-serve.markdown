@@ -4,12 +4,12 @@ title:  "jekyll serve"
 date:   2020-01-06 22:35:38 +0900
 categories:
 - blog
+tags:
+- jekyll
 #author: "GOTO Kosei"
 author_profile: true
 ---
-
-## ひさしぶりに
-WEBフロントエンドの学び直しをするにあたり、まずは[React](https://ja.reactjs.org/)の学習を始めるはずがとりあえずのメモ書きとしてblog代わりにjekyllでサイトを構築。
+done.
 
 ## 参照
 
