@@ -17,10 +17,6 @@ export function Footer() {
                         <span className="sr-only">Twitter</span>
                         <Twitter className="w-5 h-5" />
                     </a>
-                    <a href="mailto:contact@example.com" className="hover:text-white transition-colors duration-200">
-                        <span className="sr-only">Email</span>
-                        <Mail className="w-5 h-5" />
-                    </a>
                 </div>
             </div>
         </footer>
