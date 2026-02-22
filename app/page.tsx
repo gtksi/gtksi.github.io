@@ -15,7 +15,7 @@ export default function Home() {
               I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">GOTO Kosei</span>
             </h1>
             <h2 className="text-2xl font-medium text-slate-300">
-              Frontend Engineer / Software Architect
+              Software Architect / Frontend Engineer
             </h2>
           </div>
           <p className="text-xl text-slate-400 max-w-2xl leading-relaxed">
@@ -44,11 +44,15 @@ export default function Home() {
           </div>
         </div>
         <div className="w-48 h-48 md:w-64 md:h-64 relative rounded-full overflow-hidden border-4 border-slate-800 shrink-0 shadow-2xl">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 z-10" />
-          {/* Placeholder for real avatar, falls back nicely */}
-          <div className="w-full h-full bg-slate-800 flex items-center justify-center text-4xl font-bold text-slate-600">
-            GK
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 z-10 rounded-full" />
+          <Image
+            src="/avatar.png"
+            alt="GOTO Kosei"
+            fill
+            className="object-cover z-20"
+            sizes="(max-width: 768px) 192px, 256px"
+            priority
+          />
         </div>
       </section>
 
@@ -68,6 +72,7 @@ export default function Home() {
               <ul className="list-disc list-inside text-slate-300 space-y-1">
                 <li>カメラ・写真撮影</li>
                 <li>読書</li>
+                <li>アナログゲーム</li>
                 <li>スピードキュービング</li>
               </ul>
             </div>
@@ -108,6 +113,57 @@ export default function Home() {
             <h3 className="text-xl font-semibold text-white mb-2">Tools</h3>
             <p className="text-slate-400">Git, GitHub Actions, Terraform, Jest.</p>
           </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="scroll-mt-24 space-y-8">
+        <div className="space-y-4">
+          <h2 className="text-3xl font-bold text-white">Experience</h2>
+          <p className="text-slate-400">これまでの経歴や参加プロジェクトについて。</p>
+        </div>
+
+        <div className="relative border-l border-white/10 ml-3 md:ml-6 space-y-12">
+
+          <div className="relative pl-8 md:pl-12">
+            <div className="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-600 ring-4 ring-slate-950" />
+            <div className="space-y-2">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                <h3 className="text-xl font-bold text-white">最近は</h3>
+                <span className="text-sm font-medium text-slate-400 bg-white/5 px-3 py-1 rounded-full w-fit">2024年 11月 - 現在</span>
+              </div>
+              <p className="text-slate-400 leading-relaxed pt-2">
+                非同期発達の子どもの助けになるよう認知と行動の差を埋めるスマートフォンアプリの開発を行っています。
+              </p>
+            </div>
+          </div>
+
+          <div className="relative pl-8 md:pl-12">
+            <div className="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-slate-950" />
+            <div className="space-y-2">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                <h3 className="text-xl font-bold text-white">ソフトウェアアーキテクト</h3>
+                <span className="text-sm font-medium text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full w-fit">2016年 9月 - 現在</span>
+              </div>
+              <p className="text-slate-400 leading-relaxed pt-2">
+                いくつかのスタートアップ企業を支援し、React / Next.js を用いた新規サービス等の立ち上げに従事していました。
+              </p>
+            </div>
+          </div>
+
+          <div className="relative pl-8 md:pl-12">
+            <div className="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-600 ring-4 ring-slate-950" />
+            <div className="space-y-2">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                <h3 className="text-xl font-bold text-white">Webエンジニア(フロントエンド・バックエンド)</h3>
+                <span className="text-sm font-medium text-slate-400 bg-white/5 px-3 py-1 rounded-full w-fit">2007年 4月 - 2016年 8月</span>
+              </div>
+              <p className="text-slate-400 leading-relaxed pt-2">
+                社内向け勤怠管理システム等でフロントエンド・バックエンド開発を担当。
+              </p>
+            </div>
+          </div>
+
         </div>
       </section>
 
