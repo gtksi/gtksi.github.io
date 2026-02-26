@@ -214,6 +214,48 @@ export default function Home() {
               </div>
             </div>
           </a>
+
+          {/* Typing App Card */}
+          <a
+            href="https://gtksi.github.io/dotnet_my_typing/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-purple-500/50 transition-all duration-300 relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity translate-x-4 group-hover:translate-x-0 duration-300">
+              <div className="bg-purple-500/20 text-purple-400 p-2 rounded-full">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M7 17l9.2-9.2M17 17V7H7" />
+                </svg>
+              </div>
+            </div>
+
+            <div className="space-y-4 relative z-10">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 rounded-2xl flex items-center justify-center mb-6">
+                <svg className="w-6 h-6 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 19h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2Z" />
+                  <path d="M8 11h.01" />
+                  <path d="M12 11h.01" />
+                  <path d="M16 11h.01" />
+                  <path d="M8 15h8" />
+                </svg>
+              </div>
+
+              <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
+                My Typing App
+              </h3>
+
+              <p className="text-slate-400 text-sm leading-relaxed">
+                ブラウザ上で手軽に遊べるタイピングゲーム。C# と .NET (Blazor WebAssembly) を用いて開発されており、高速でスムーズな動作を実現しています。
+              </p>
+
+              <div className="flex flex-wrap gap-2 pt-4">
+                <span className="text-xs font-medium text-slate-300 bg-white/5 border border-white/10 px-3 py-1 rounded-full">C#</span>
+                <span className="text-xs font-medium text-slate-300 bg-white/5 border border-white/10 px-3 py-1 rounded-full">.NET</span>
+                <span className="text-xs font-medium text-slate-300 bg-white/5 border border-white/10 px-3 py-1 rounded-full">Blazor WASM</span>
+              </div>
+            </div>
+          </a>
         </div>
       </section>
 
