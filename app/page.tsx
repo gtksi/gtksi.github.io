@@ -256,6 +256,46 @@ export default function Home() {
               </div>
             </div>
           </a>
+
+          {/* Number Sequencing PWA Card */}
+          <a
+            href="https://gtksi.github.io/pwa.number.sequencing/"
+            target=" _blank"
+            rel="noopener noreferrer"
+            className="group block p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-amber-500/50 transition-all duration-300 relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity translate-x-4 group-hover:translate-x-0 duration-300">
+              <div className="bg-amber-500/20 text-amber-400 p-2 rounded-full">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M7 17l9.2-9.2M17 17V7H7" />
+                </svg>
+              </div>
+            </div>
+
+            <div className="space-y-4 relative z-10">
+              <div className="w-12 h-12 bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-white/10 rounded-2xl flex items-center justify-center mb-6">
+                <svg className="w-6 h-6 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+              </div>
+
+              <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                Number Sequencing PWA
+              </h3>
+
+              <p className="text-slate-400 text-sm leading-relaxed">
+                数字を正しい順番で選択していく脳トレアプリ。ワーキングメモリの強化に役立ち、PWAとしてスマートフォンなどにもインストール可能です。
+              </p>
+
+              <div className="flex flex-wrap gap-2 pt-4">
+                <span className="text-xs font-medium text-slate-300 bg-white/5 border border-white/10 px-3 py-1 rounded-full">React</span>
+                <span className="text-xs font-medium text-slate-300 bg-white/5 border border-white/10 px-3 py-1 rounded-full">TypeScript</span>
+                <span className="text-xs font-medium text-slate-300 bg-white/5 border border-white/10 px-3 py-1 rounded-full">Vite</span>
+                <span className="text-xs font-medium text-slate-300 bg-white/5 border border-white/10 px-3 py-1 rounded-full">PWA</span>
+              </div>
+            </div>
+          </a>
         </div>
       </section>
 
