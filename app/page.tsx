@@ -159,7 +159,7 @@ export default function Home() {
                 <span className="text-sm font-medium text-slate-400 bg-white/5 px-3 py-1 rounded-full w-fit">2007年 4月 - 2016年 8月</span>
               </div>
               <p className="text-slate-400 leading-relaxed pt-2">
-                社内向け勤怠管理システム等でフロントエンド・バックエンド開発を担当。
+                中小企業向け経費管理・勤怠管理システム等でフロントエンド・バックエンド開発を担当。
               </p>
             </div>
           </div>
