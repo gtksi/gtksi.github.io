@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { GithubActivity } from "@/components/github-activity";
 import { WakaTimeActivity } from "@/components/wakatime-stats";
-import { Code2, Terminal, Database, Cloud, Wrench, Briefcase, Github, Twitter, Linkedin, Mail, User, Facebook } from "lucide-react";
+import { Code2, Terminal, Database, Cloud, Wrench, User } from "lucide-react";
+import { FacebookIcon, GitHubIcon, XIcon } from "@/components/brand-icons";
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
         <div className="flex-1 space-y-6">
           <div className="space-y-2">
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">GOTO Kosei</span>
+              I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">GOTO Kosei</span>
             </h1>
             <h2 className="text-2xl font-medium text-slate-300">
               Software Architect / Frontend Engineer
@@ -24,13 +25,13 @@ export default function Home() {
 
           <div className="flex items-center gap-6 pt-2">
             <a href="https://github.com/gtksi" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="GitHub">
-              <Github className="w-6 h-6" />
+              <GitHubIcon className="w-6 h-6" />
             </a>
-            <a href="https://twitter.com/gotokosei" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors" aria-label="Twitter">
-              <Twitter className="w-6 h-6" />
+            <a href="https://x.com/gotokosei" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors" aria-label="X">
+              <XIcon className="w-6 h-6" />
             </a>
             <a href="https://www.facebook.com/goto.kosei" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors" aria-label="Facebook">
-              <Facebook className="w-6 h-6" />
+              <FacebookIcon className="w-6 h-6" />
             </a>
           </div>
 
@@ -84,34 +85,34 @@ export default function Home() {
       <section id="skills" className="scroll-mt-24 space-y-12">
         <div className="text-center space-y-4">
           <h2 className="text-3xl font-bold text-white">Technical Arsenal</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">A selection of technologies and tools I utilize to bring ideas to production.</p>
+          <p className="text-slate-400 max-w-2xl mx-auto">実務経験と個人開発を通じて磨いている技術スタック。</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="p-6 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-sm hover:border-white/10 transition-colors">
             <Code2 className="w-8 h-8 text-blue-400 mb-4" />
-            <h3 className="text-xl font-semibold text-white mb-2">Frontend</h3>
-            <p className="text-slate-400">React, Next.js, TypeScript, Tailwind CSS, Vue.js</p>
+            <h3 className="text-xl font-semibold text-white mb-2">Professional Frontend</h3>
+            <p className="text-slate-400">TypeScript, Angular</p>
           </div>
           <div className="p-6 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-sm hover:border-white/10 transition-colors">
             <Terminal className="w-8 h-8 text-emerald-400 mb-4" />
-            <h3 className="text-xl font-semibold text-white mb-2">Backend</h3>
-            <p className="text-slate-400">Node.js, Python, Go, REST APIs, GraphQL</p>
+            <h3 className="text-xl font-semibold text-white mb-2">Professional Backend & AI</h3>
+            <p className="text-slate-400">Node.js, LLM API, MCP, AI agent</p>
           </div>
           <div className="p-6 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-sm hover:border-white/10 transition-colors">
             <Database className="w-8 h-8 text-purple-400 mb-4" />
-            <h3 className="text-xl font-semibold text-white mb-2">Database</h3>
-            <p className="text-slate-400">PostgreSQL, MySQL, Redis</p>
+            <h3 className="text-xl font-semibold text-white mb-2">Professional Cloud & Delivery</h3>
+            <p className="text-slate-400">AWS, Docker, CI/CD Design</p>
           </div>
           <div className="p-6 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-sm hover:border-white/10 transition-colors">
             <Cloud className="w-8 h-8 text-sky-400 mb-4" />
-            <h3 className="text-xl font-semibold text-white mb-2">DevOps & Cloud</h3>
-            <p className="text-slate-400">GCP, Docker, Kubernetes, CI/CD</p>
+            <h3 className="text-xl font-semibold text-white mb-2">Personal Development</h3>
+            <p className="text-slate-400">TypeScript, React, Next.js, GitHub Actions, Vitest, LLM API</p>
           </div>
           <div className="p-6 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-sm hover:border-white/10 transition-colors">
             <Wrench className="w-8 h-8 text-rose-400 mb-4" />
-            <h3 className="text-xl font-semibold text-white mb-2">Tools</h3>
-            <p className="text-slate-400">Git, GitHub Actions, Terraform, Jest.</p>
+            <h3 className="text-xl font-semibold text-white mb-2">Architecture</h3>
+            <p className="text-slate-400">Technology Selection, System Design, CI/CD Design Support</p>
           </div>
         </div>
       </section>
@@ -146,7 +147,7 @@ export default function Home() {
                 <span className="text-sm font-medium text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full w-fit">2016年 9月 - 現在</span>
               </div>
               <p className="text-slate-400 leading-relaxed pt-2">
-                いくつかのスタートアップ企業を支援し、React / Next.js を用いた新規サービス等の立ち上げに従事していました。
+                複数のプロダクトチームを支援し、技術選定、システム設計、CI/CD の設計支援を担当しています。
               </p>
             </div>
           </div>
@@ -170,8 +171,8 @@ export default function Home() {
       {/* Works / Apps Section */}
       <section id="works" className="scroll-mt-24 space-y-8">
         <div className="space-y-4">
-          <h2 className="text-3xl font-bold text-white">Works / Apps</h2>
-          <p className="text-slate-400">個人的に開発・公開しているアプリケーション。</p>
+          <h2 className="text-3xl font-bold text-white">Personal Projects / Apps</h2>
+          <p className="text-slate-400">個人で開発・公開しているアプリケーション。</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -184,7 +185,7 @@ export default function Home() {
           >
             <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity translate-x-4 group-hover:translate-x-0 duration-300">
               <div className="bg-blue-500/20 text-blue-400 p-2 rounded-full">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M7 17l9.2-9.2M17 17V7H7" />
                 </svg>
               </div>
@@ -192,7 +193,7 @@ export default function Home() {
 
             <div className="space-y-4 relative z-10">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 border border-white/10 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-6 h-6 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg aria-hidden="true" className="w-6 h-6 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10" />
                   <polygon points="10 8 16 12 10 16 10 8" />
                 </svg>
@@ -224,7 +225,7 @@ export default function Home() {
           >
             <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity translate-x-4 group-hover:translate-x-0 duration-300">
               <div className="bg-purple-500/20 text-purple-400 p-2 rounded-full">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M7 17l9.2-9.2M17 17V7H7" />
                 </svg>
               </div>
@@ -232,7 +233,7 @@ export default function Home() {
 
             <div className="space-y-4 relative z-10">
               <div className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-6 h-6 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg aria-hidden="true" className="w-6 h-6 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4 19h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2Z" />
                   <path d="M8 11h.01" />
                   <path d="M12 11h.01" />
@@ -260,13 +261,13 @@ export default function Home() {
           {/* Number Sequencing PWA Card */}
           <a
             href="https://gtksi.github.io/pwa.number.sequencing/"
-            target=" _blank"
+            target="_blank"
             rel="noopener noreferrer"
             className="group block p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-amber-500/50 transition-all duration-300 relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity translate-x-4 group-hover:translate-x-0 duration-300">
               <div className="bg-amber-500/20 text-amber-400 p-2 rounded-full">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M7 17l9.2-9.2M17 17V7H7" />
                 </svg>
               </div>
@@ -274,7 +275,7 @@ export default function Home() {
 
             <div className="space-y-4 relative z-10">
               <div className="w-12 h-12 bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-white/10 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-6 h-6 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg aria-hidden="true" className="w-6 h-6 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                   <polyline points="9 22 9 12 15 12 15 22" />
                 </svg>
@@ -317,7 +318,7 @@ export default function Home() {
       <section className="space-y-12 pb-12">
         <div className="space-y-4">
           <h2 className="text-3xl font-bold text-white">Coding Activity</h2>
-          <p className="text-slate-400">Real-time programming metrics via WakaTime.</p>
+          <p className="text-slate-400">A build-time snapshot of programming metrics from WakaTime.</p>
         </div>
         <WakaTimeActivity />
       </section>

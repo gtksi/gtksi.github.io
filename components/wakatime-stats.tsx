@@ -9,9 +9,9 @@ export async function WakaTimeActivity() {
             <div className="p-6 rounded-2xl border border-white/5 bg-white/5">
                 <div className="flex items-center gap-3 text-slate-400 mb-2">
                     <Clock className="w-5 h-5" />
-                    <h3 className="font-semibold text-white">Coding Activity API key required</h3>
+                    <h3 className="font-semibold text-white">Coding Activity Unavailable</h3>
                 </div>
-                <p className="text-sm text-slate-500">WakaTime API key is not configured locally or on Vercel/GitHub Actions.</p>
+                <p className="text-sm text-slate-500">WakaTime statistics were unavailable when this site was built.</p>
             </div>
         );
     }
@@ -27,7 +27,7 @@ export async function WakaTimeActivity() {
                     <h3 className="font-semibold text-white">Last 7 Days Activity</h3>
                 </div>
                 <span className="text-emerald-400 font-mono text-sm bg-emerald-400/10 px-3 py-1 rounded-full">
-                    {human_readable_total}
+                    {human_readable_total} at build time
                 </span>
             </div>
 

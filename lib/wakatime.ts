@@ -19,19 +19,16 @@ export async function getWakaTimeStats(): Promise<WakaTimeStats | null> {
     const apiKey = process.env.WAKATIME_API_KEY;
 
     if (!apiKey) {
-        console.warn("WAKATIME_API_KEY is not set.");
         return null;
     }
 
     const encodedKey = Buffer.from(apiKey).toString("base64");
 
-    // WakaTime API fetching logic
+    // Static export fetches WakaTime data at build time.
     const res = await fetch("https://wakatime.com/api/v1/users/current/stats/last_7_days", {
         headers: {
             Authorization: `Basic ${encodedKey}`,
         },
-        // We can fetch at build time, but keep revalidation if supported by host
-        next: { revalidate: 3600 },
     });
 
     if (!res.ok) {

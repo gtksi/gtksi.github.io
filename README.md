@@ -1,27 +1,29 @@
 # GOTO Kosei Portfolio
 
-Modern, high-performance portfolio website built with Next.js (App Router), Tailwind CSS v4, and TypeScript. Optimized for a perfect 100/100 Lighthouse score and designed to automatically fetch and display real-time GitHub and WakaTime activity.
+Modern, static portfolio website built with Next.js (App Router), React, Tailwind CSS v4, and TypeScript. GitHub repositories and WakaTime statistics are fetched when the site is built and published as a static snapshot.
 
 ## 🚀 Architecture
 
-- **Framework**: Next.js 15 (App Router)
+- **Framework**: Next.js 16 (App Router, Turbopack)
+- **Language**: TypeScript 7
 - **Styling**: Tailwind CSS v4 (Utility-first, minimal compiled CSS)
+- **Code Quality**: Biome (linting)
 - **Deployment**: GitHub Pages (via Static HTML Export)
 - **CI/CD**: GitHub Actions (`.github/workflows/deploy.yml`)
-- **Dynamic Content**: GitHub API & WakaTime API integrated as Next.js Server Components.
+- **Build-time Data**: GitHub API & WakaTime API integrated as Next.js Server Components.
 
 ## 🛠 Features
 
-- **Blazing Fast**: Uses Next.js `output: 'export'` for full static generation (SSG). Zero runtime server overhead.
+- **Static Export**: Uses Next.js `output: 'export'` for full static generation (SSG) with no runtime server.
 - **Dark Mode First**: Premium aesthetic utilizing a deep slate gradient and glassmorphism.
-- **GitHub Integration**: Automatically fetches and lists recent, non-forked public repositories.
-- **WakaTime Integration**: Displays the last 7 days of coding time and language usage dynamically.
+- **GitHub Integration**: Lists recent, non-forked public repositories captured at build time.
+- **WakaTime Integration**: Displays a build-time snapshot of the last 7 days of coding time and language usage.
 
 ## 💻 Local Development
 
 ### Prerequisites
 
-- Node.js (v20+)
+- Node.js 20.9+
 - npm / pnpm / yarn
 
 ### API Keys (Optional but Recommended)
@@ -45,18 +47,18 @@ WAKATIME_API_KEY=your_wakatime_api_key
    ```bash
    npm run dev
    ```
-3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Verify code quality with `npm run lint`.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## 📦 Deployment (GitHub Pages)
 
-This repository is configured to automatically deploy to GitHub Pages whenever you push to the `main` branch.
+This repository is configured to automatically deploy to GitHub Pages whenever you push to the `master` branch.
 
 ### Setup Instructions
 
 1. Go to your repository settings on GitHub: **Settings > Pages**.
 2. Under **Build and deployment > Source**, select **GitHub Actions**.
 3. Under **Settings > Secrets and variables > Actions**, add the following **Repository secrets**:
-   - `WAKATIME_API_KEY` (Required for WakaTime stats)
-   - `GH_TOKEN_FOR_PORTFOLIO` (Optional: If you want to use a Custom PAT instead of default `GITHUB_TOKEN`)
+   - `WAKATIME_API_KEY` (Required to include WakaTime stats in the build)
 
-The `.github/workflows/deploy.yml` workflow will handle building the static site and deploying it directly to GitHub Pages.
+The `.github/workflows/deploy.yml` workflow uses GitHub Actions' built-in `GITHUB_TOKEN`, builds the static site, and deploys it directly to GitHub Pages.

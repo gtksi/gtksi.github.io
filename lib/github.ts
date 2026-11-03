@@ -11,7 +11,7 @@ export interface GitHubRepo {
     fork: boolean;
 }
 
-export async function getPinnedRepos(username: string): Promise<GitHubRepo[]> {
+export async function getRecentRepos(username: string): Promise<GitHubRepo[]> {
     // Use a fallback if token is not available during static export
     const token = process.env.GITHUB_TOKEN;
 
@@ -23,8 +23,7 @@ export async function getPinnedRepos(username: string): Promise<GitHubRepo[]> {
         headers.Authorization = `token ${token}`;
     }
 
-    // Next.js fetch with revalidation for static export
-    // Since we are doing static export, this will run at build time.
+    // Static export fetches the repository data at build time.
     const res = await fetch(
         `https://api.github.com/users/${username}/repos?sort=updated&per_page=6`,
         { headers }
@@ -36,6 +35,6 @@ export async function getPinnedRepos(username: string): Promise<GitHubRepo[]> {
     }
 
     const repos: GitHubRepo[] = await res.json();
-    // Filter out forks and return
+    // Return the four most recently updated non-fork repositories.
     return repos.filter(repo => !repo.fork).slice(0, 4);
 }

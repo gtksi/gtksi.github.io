@@ -1,8 +1,8 @@
-import { getPinnedRepos } from "@/lib/github";
+import { getRecentRepos } from "@/lib/github";
 import { FolderGit2, Star, Circle } from "lucide-react";
 
 export async function GithubActivity() {
-    const repos = await getPinnedRepos("gtksi");
+    const repos = await getRecentRepos("gtksi");
 
     if (!repos.length) {
         return <div className="text-slate-500">No public repositories found.</div>;

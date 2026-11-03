@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "GOTO Kosei | Portfolio",
-  description: "Software Architect Portfolio & Memorandum",
+  description:
+    "GOTO Kosei's portfolio: software architecture, frontend engineering, projects, and coding activity.",
 };
 
 import { Header } from "@/components/layout/header";
@@ -26,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="ja" className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
