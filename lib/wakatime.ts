@@ -10,31 +10,75 @@ export interface WakaTimeLanguage {
 export interface WakaTimeStats {
     data: {
         human_readable_total: string;
-        human_readable_daily_average: string;
-        languages: WakaTimeLanguage[];
+        human_readable_daily_average?: string;
+        languages?: WakaTimeLanguage[];
+        is_up_to_date?: boolean;
     };
 }
 
-export async function getWakaTimeStats(): Promise<WakaTimeStats | null> {
-    const apiKey = process.env.WAKATIME_API_KEY;
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
+export async function getWakaTimeStats(): Promise<WakaTimeStats | null> {
+    const rawApiKey = process.env.WAKATIME_API_KEY;
+
+    if (!rawApiKey) {
+        console.warn("WAKATIME_API_KEY is not set.");
+        return null;
+    }
+
+    const apiKey = rawApiKey.trim();
     if (!apiKey) {
+        console.warn("WAKATIME_API_KEY is empty after trimming.");
         return null;
     }
 
     const encodedKey = Buffer.from(apiKey).toString("base64");
 
-    // Static export fetches WakaTime data at build time.
-    const res = await fetch("https://wakatime.com/api/v1/users/current/stats/last_7_days", {
-        headers: {
-            Authorization: `Basic ${encodedKey}`,
-        },
-    });
+    // Fetch stats for the last 7 days.
+    // If WakaTime returns 202 Accepted (processing in background), retry with backoff.
+    const maxRetries = 3;
+    const url = `https://wakatime.com/api/v1/users/current/stats/last_7_days?api_key=${encodeURIComponent(apiKey)}`;
 
-    if (!res.ok) {
-        console.error("Failed to fetch WakaTime stats:", await res.text());
-        return null;
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+        try {
+            const res = await fetch(url, {
+                headers: {
+                    Authorization: `Basic ${encodedKey}`,
+                },
+                cache: "force-cache",
+                next: { revalidate: 3600 },
+            });
+
+            if (res.status === 202) {
+                console.warn(`WakaTime stats are being calculated (attempt ${attempt}/${maxRetries}). Waiting before retry...`);
+                if (attempt < maxRetries) {
+                    await sleep(2000 * attempt);
+                    continue;
+                }
+            }
+
+            if (!res.ok) {
+                console.error(`Failed to fetch WakaTime stats (status ${res.status}):`, await res.text());
+                return null;
+            }
+
+            const json = (await res.json()) as WakaTimeStats;
+            if (json?.data?.is_up_to_date === false && attempt < maxRetries) {
+                console.warn(`WakaTime stats not up to date yet (attempt ${attempt}/${maxRetries}). Retrying...`);
+                await sleep(2000 * attempt);
+                continue;
+            }
+
+            return json;
+        } catch (error) {
+            console.error(`Error fetching WakaTime stats (attempt ${attempt}/${maxRetries}):`, error);
+            if (attempt < maxRetries) {
+                await sleep(2000 * attempt);
+                continue;
+            }
+            return null;
+        }
     }
 
-    return res.json();
+    return null;
 }

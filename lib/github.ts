@@ -26,7 +26,11 @@ export async function getRecentRepos(username: string): Promise<GitHubRepo[]> {
     // Static export fetches the repository data at build time.
     const res = await fetch(
         `https://api.github.com/users/${username}/repos?sort=updated&per_page=6`,
-        { headers }
+        {
+            headers,
+            cache: "force-cache",
+            next: { revalidate: 3600 },
+        }
     );
 
     if (!res.ok) {
@@ -36,5 +40,5 @@ export async function getRecentRepos(username: string): Promise<GitHubRepo[]> {
 
     const repos: GitHubRepo[] = await res.json();
     // Return the four most recently updated non-fork repositories.
-    return repos.filter(repo => !repo.fork).slice(0, 4);
+    return repos.filter((repo) => !repo.fork).slice(0, 4);
 }

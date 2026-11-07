@@ -4,6 +4,8 @@ import { WakaTimeActivity } from "@/components/wakatime-stats";
 import { Code2, Terminal, Database, Cloud, Wrench, User } from "lucide-react";
 import { FacebookIcon, GitHubIcon, XIcon } from "@/components/brand-icons";
 
+export const dynamic = "force-static";
+
 export default function Home() {
   return (
     <div className="max-w-5xl mx-auto px-6 py-12 space-y-32">
