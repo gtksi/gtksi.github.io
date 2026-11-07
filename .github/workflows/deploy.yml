@@ -46,7 +46,7 @@ jobs:
         run: npm run build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY || vars.WAKATIME_API_KEY }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

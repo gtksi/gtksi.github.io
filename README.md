@@ -32,10 +32,10 @@ To fetch data properly during development, create a `.env.local` file in the roo
 
 ```env
 GITHUB_TOKEN=your_personal_access_token
-WAKATIME_API_KEY=your_wakatime_api_key
+WAKATIME_API_KEY=your_wakatime_personal_oauth_token
 ```
 
-*Note: WakaTime API key is required to show coding activity. If omitted, a fallback message will be displayed.*
+*Note: WakaTime Personal OAuth Token (from https://wakatime.com/oauth) is required to show coding activity. If omitted, a fallback message will be displayed.*
 
 ### Getting Started
 
@@ -52,13 +52,13 @@ WAKATIME_API_KEY=your_wakatime_api_key
 
 ## 📦 Deployment (GitHub Pages)
 
-This repository is configured to automatically deploy to GitHub Pages whenever you push to the `master` branch.
+This repository is configured to automatically deploy to GitHub Pages whenever you push to the `master` branch, as well as every day at 04:00 JST via scheduled cron.
 
 ### Setup Instructions
 
 1. Go to your repository settings on GitHub: **Settings > Pages**.
 2. Under **Build and deployment > Source**, select **GitHub Actions**.
 3. Under **Settings > Secrets and variables > Actions**, add the following **Repository secrets**:
-   - `WAKATIME_API_KEY` (Required to include WakaTime stats in the build)
+   - `WAKATIME_API_KEY`: Your Personal OAuth Token from [https://wakatime.com/oauth](https://wakatime.com/oauth).
 
 The `.github/workflows/deploy.yml` workflow uses GitHub Actions' built-in `GITHUB_TOKEN`, builds the static site, and deploys it directly to GitHub Pages.

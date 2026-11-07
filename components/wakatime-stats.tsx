@@ -11,7 +11,9 @@ export async function WakaTimeActivity() {
                     <Clock className="w-5 h-5" />
                     <h3 className="font-semibold text-white">Coding Activity Unavailable</h3>
                 </div>
-                <p className="text-sm text-slate-500">WakaTime statistics were unavailable when this site was built.</p>
+                <p className="text-sm text-slate-500">
+                    {stats?.errorReason || "WakaTime statistics were unavailable when this site was built."}
+                </p>
             </div>
         );
     }
